@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 Happy Birth Day💝</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #8B1538 0%, #DC143C 25%, #FF69B4 50%, #FFB6C1 75%, #FFF0F5 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 50% 50%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; position: relative; z-index: 1; }
+
+        .header { text-align: center; padding: 40px 20px; animation: fadeInDown 1s ease; }
+        .header h1 { color: #fff; font-size: 3em; text-shadow: 3px 3px 6px rgba(0,0,0,0.3); margin-bottom: 10px; animation: bounce 2s infinite; }
+        .header p { color: #ffe6f0; font-size: 1.3em; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+
+        .gift-box {
+            background: white; border-radius: 30px; padding: 40px; margin: 20px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3); animation: slideIn 1s ease; position: relative; overflow: hidden;
+        }
+        .gift-box::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,182,193,0.3), transparent);
+            transform: rotate(45deg); animation: shimmer 3s infinite;
+        }
+
+        .cake-container { text-align: center; margin: 30px 0; }
+        .cake { font-size: 80px; animation: swing 2s ease-in-out infinite; display: inline-block; }
+
+        .message { color: #ff69b4; font-size: 1.5em; text-align: center; margin: 20px 0; line-height: 1.6; font-weight: bold; }
+
+        .button-container { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 30px 0; }
+
+        .btn {
+            padding: 15px 30px; font-size: 1.1em; border: none; border-radius: 50px; cursor: pointer;
+            font-weight: bold; transition: all 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-family: 'Comic Sans MS', cursive;
+        }
+        .btn-love { background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%); color: white; }
+        .btn-surprise { background: linear-gradient(135deg, #ffa751 0%, #ffe259 100%); color: #333; }
+        .btn-music { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333; }
+        .btn:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+        .btn:active { transform: scale(0.95); }
+
+        .floating-hearts { position: fixed; pointer-events: none; z-index: 9999; }
+        .heart { position: absolute; font-size: 30px; animation: float-up 3s ease-in forwards; opacity: 0; }
+
+        .confetti { position: fixed; width: 10px; height: 10px; pointer-events: none; z-index: 9999; }
+
+        .surprise-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%); border-radius: 20px;
+            padding: 30px; margin: 20px 0; text-align: center; display: none; animation: popIn 0.5s ease;
+        }
+        .surprise-box h2 { color: #d63031; margin-bottom: 15px; font-size: 2em; }
+        .surprise-box p { color: #2d3436; font-size: 1.2em; line-height: 1.8; }
+
+        .photo-frame {
+            width: 250px; height: 250px; border: 10px solid #8B1538; border-radius: 50%;
+            margin: 20px auto; overflow: hidden; box-shadow: 0 10px 30px rgba(139,21,56,0.4);
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe6f0 100%);
+        }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .wishes-list {
+            background: linear-gradient(135deg, #FFB6C1 0%, #FFC0CB 100%);
+            border-radius: 20px; padding: 25px; margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(139,21,56,0.3);
+        }
+        .wishes-list h3 { color: #8B1538; text-align: center; margin-bottom: 15px; font-size: 1.8em; }
+        .wishes-list ul { list-style: none; }
+        .wishes-list li {
+            background: white; padding: 15px; margin: 10px 0; border-radius: 15px;
+            color: #8B1538; font-size: 1.1em; box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .wishes-list li::before { content: '💖 '; font-size: 1.2em; }
+
+        /* Animations tetap sama */
+        @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+        @keyframes fadeInDown { from{opacity:0;transform:translateY(-50px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes slideIn { from{opacity:0;transform:translateX(-100px)} to{opacity:1;transform:translateX(0)} }
+        @keyframes swing { 0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(5deg)} }
+        @keyframes float-up { 0%{transform:translateY(0) rotate(0deg);opacity:1} 100%{transform:translateY(-1000px) rotate(720deg);opacity:0} }
+        @keyframes popIn { 0%{transform:scale(0);opacity:0} 50%{transform:scale(1.1)} 100%{transform:scale(1);opacity:1} }
+        @keyframes shimmer { 0%{transform:translateX(-100%) translateY(-100%) rotate(45deg)} 100%{transform:translateX(100%) translateY(100%) rotate(45deg)} }
+        @keyframes sparkle { 0%{transform:scale(0) rotate(0deg);opacity:1} 100%{transform:scale(2) rotate(180deg);opacity:0} }
+    </style>
+</head>
+<body>
+    <!-- MUSIK OTOMATIS (klik sekali di mana saja untuk mulai karena browser blokir autoplay) -->
+    <audio id="bgMusic" loop>
+        <source src="birthday-song.mp3" type="audio/mpeg">
+        Browser kamu tidak mendukung audio.
+    </audio>
+
+    <div class="container">
+        <div class="header">
+            <h1>🎉 Happy 18th Birthday!! 🎉</h1>
+            <p>Esa Asha Shara❤️💃🌹 ✨</p>
+        </div>
+
+        <div class="gift-box">
+            <!-- FOTO LANGSUNG MUNCUL -->
+            <div class="photo-frame">
+                <img src="esa.jpeg" alt="Esa Asha Shara">
+            </div>
+            
+            <div class="cake-container">
+                <div class="cake">🎂</div>
+            </div>
+
+            <div class="message">
+                Today is ur special day!<br>
+                May all ur dreams come true! 🌟
+            </div>
+
+            <div class="button-container">
+                <button class="btn btn-love" onclick="showLove()">click</button>
+                <button class="btn btn-surprise" onclick="showSurprise()">🎁 Surprise for u!</button>
+                <button class="btn btn-music" onclick="toggleMusic()">click</button>
+            </div>
+
+            <div class="surprise-box" id="surpriseBox">
+                <h2>🎊 notes than me! 🎊</h2>
+                <p>
+                   أتمنى أن نعود كما كنا في يومٍ ما.<br>
+                    出会ってくれてありがとう。<br>
+                    May this year bring u happiness,<br>
+                    health, and success! 🌈<br>
+                    Gib niemals auf, deine Träume zu erreichen!
+                </p>
+            </div>
+
+            <div class="wishes-list">
+                <h3>🌟 My Best Wishes For u 🌟</h3>
+                <ul>
+                    <li>May u always be healthy n happy although without me,i think so🗿</li>
+                    <li>May all ur dreams come true^_^</li>
+                    <li>May u be surrounded by amazing people</li>
+                    <li>May u be blessed with abundance</li>
+                    <li>I hope u can forgive me for what happened in the pasty☆*:o(≧▽≦)o:*☆</li>
+                    <li>May u like my surprise :)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const music = document.getElementById('bgMusic');
+        let musicAllowed = false;
+
+        document.body.addEventListener('click', function() {
+            if (!musicAllowed) {
+                music.play();
+                musicAllowed = true;
+            }
+        }, { once: true });
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                celebrate();
+            } else {
+                music.pause();
+            }
+        }
+
+        function showLove() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(createHeart, i * 100);
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = ['❤️','💕','💖','💗','💝'][Math.floor(Math.random()*5)];
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = window.innerHeight + 'px';
+            heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+            heart.style.animationDelay = Math.random() * 0.5 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 3000);
+        }
+
+        function celebrate() {
+            const colors = ['#ff6b9d','#ffa751','#a8edea','#fed6e3','#ffeaa7'];
+            for (let i = 0; i < 120; i++) {
+                setTimeout(() => {
+                    const c = document.createElement('div');
+                    c.className = 'confetti';
+                    c.style.left = Math.random() * window.innerWidth + 'px';
+                    c.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+                    c.style.transform = `rotate(${Math.random()*360}deg)`;
+                    document.body.appendChild(c);
+
+                    c.animate([
+                        { top: '-10px', opacity: 1 },
+                        { top: window.innerHeight + 'px', opacity: 0, transform: `rotate(${Math.random()*720}deg)` }
+                    ], {
+                        duration: Math.random()*2000 + 2500,
+                        easing: 'cubic-bezier(0.25,0.46,0.45,0.94)'
+                    }).onfinish = () => c.remove();
+                }, i * 30);
+            }
+            createSparkles();
+        }
+
+        function showSurprise() {
+            const box = document.getElementById('surpriseBox');
+            box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+            if (box.style.display === 'block') createSparkles();
+        }
+
+        function createSparkles() {
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    const s = document.createElement('div');
+                    s.innerHTML = '✨';
+                    s.style.position = 'fixed';
+                    s.style.left = Math.random() * window.innerWidth + 'px';
+                    s.style.top = Math.random() * window.innerHeight + 'px';
+                    s.style.pointerEvents = 'none';
+                    s.style.fontSize = '20px';
+                    s.style.animation = 'sparkle 1s ease-out forwards';
+                    document.body.appendChild(s);
+                    setTimeout(() => s.remove(), 1000);
+                }, i * 80);
+            }
+        }
+
+        document.addEventListener('mousemove', e => {
+            if (Math.random() > 0.93) {
+                const s = document.createElement('div');
+                s.innerHTML = '✨';
+                s.style.position = 'fixed';
+                s.style.left = e.clientX + 'px';
+                s.style.top = e.clientY + 'px';
+                s.style.pointerEvents = 'none';
+                s.style.fontSize = '20px';
+                s.style.animation = 'sparkle 1s ease-out forwards';
+                document.body.appendChild(s);
+                setTimeout(() => s.remove(), 1000);
+            }
+        });
+
+        window.onload = () => {
+            setTimeout(() => {
+                for (let i = 0; i < 12; i++) setTimeout(createHeart, i * 300);
+            }, 800);
+        };
+    </script>
+</body>
+</html>
